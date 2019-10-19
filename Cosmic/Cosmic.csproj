@@ -10,7 +10,7 @@
     <Copyright>Copyright (c) 2019 Roger Creyke</Copyright>
     <PackageLicenseUrl>https://raw.githubusercontent.com/creyke/Cosmic/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/creyke/Cosmic</PackageProjectUrl>
-    <PackageTags>cosmos;cli;netcore;csharp</PackageTags>
+    <PackageTags>cosmos;cli;command;line;netcore;csharp</PackageTags>
     <Description>A succinct and powerful command line query tool for Azure Cosmos DB.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.0.3</Version>

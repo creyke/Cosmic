@@ -21,3 +21,13 @@ Delete documents from an Azure Cosmos DB account:
 ```
 cosmic delete foo/db/container "SELECT * FROM c"
 ```
+
+You can pipe data out to a file...
+```
+cosmic query foo/db/container "SELECT * FROM c" > data.json
+```
+
+...and then load data back in:
+```
+cosmic load foo/db/container data.json
+```

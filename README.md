@@ -16,3 +16,8 @@ Query an Azure Cosmos DB account (where 'foo' is the name of a previously create
 ```
 cosmic query foo/db/container "SELECT * FROM c"
 ```
+
+Delete documents from an Azure Cosmos DB account:
+```
+cosmic delete foo/db/container "SELECT * FROM c"
+```

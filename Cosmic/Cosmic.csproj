@@ -6,6 +6,12 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>cosmic</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
+    <Authors>Roger Creyke</Authors>
+    <Copyright>Copyright (c) 2019 Roger Creyke</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/creyke/Cosmic/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/creyke/cosmic</PackageProjectUrl>
+    <PackageTags>cosmos;cli;netcore;csharp</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

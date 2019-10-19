@@ -13,12 +13,18 @@
     <PackageTags>cosmos;cli;command;line;netcore;csharp</PackageTags>
     <Description>A succinct and powerful command line query tool for Azure Cosmos DB.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.6.0" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="data.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

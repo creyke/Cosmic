@@ -1,6 +1,5 @@
 ﻿using Microsoft.Azure.Cosmos;
 using System;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace Cosmic.Commands.Delete
@@ -26,7 +25,7 @@ namespace Cosmic.Commands.Delete
                 }
             }
 
-            Console.WriteLine($"Deleted {deleted} documents.");
+            Console.WriteLine($"Deleted {deleted}/{Docs.Count} documents.");
 
             return 0;
         }

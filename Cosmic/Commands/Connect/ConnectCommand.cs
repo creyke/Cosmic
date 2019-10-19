@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Cosmic.Commands.Connect
 {
-    public class ConnectCommand : ICommand<ConnectOptions>
+    public class ConnectCommand : Command<ConnectOptions>
     {
-        public async Task<int> ExecuteAsync(ConnectOptions options)
+        public async override Task<int> ExecuteAsync(ConnectOptions options)
         {
             var connection = new Connection
             {

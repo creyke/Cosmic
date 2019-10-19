@@ -12,7 +12,7 @@ Connect to an Azure Cosmos DB account:
 cosmic connect -n foo -c AccountEndpoint=https://****.documents.azure.com:443/;AccountKey=****==;
 ```
 
-Query an Azure Cosmos DB account:
+Query an Azure Cosmos DB account (where 'foo' is the name of a previously created connection):
 ```
 cosmic query foo/db/container "SELECT * FROM c"
 ```

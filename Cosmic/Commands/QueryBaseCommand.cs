@@ -1,6 +1,9 @@
-﻿using Microsoft.Azure.Cosmos;
+﻿using Cosmic.Data;
+using Microsoft.Azure.Cosmos;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Cosmic.Commands
@@ -14,13 +17,23 @@ namespace Cosmic.Commands
         {
             await base.ExecuteCommandAsync(options);
 
-            if (!options.Query.Contains(' '))
+            string query = null;
+            
+            if (options.Query.Contains(' '))
             {
-                Console.WriteLine("Query appears malformed. Consider surrounding with apostrophes.");
-                return 1;
+                query = options.Query;
+            }
+            else
+            {
+                var appDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+                var cosmicDir = appDir.CreateSubdirectory("cosmic");
+                var queriesDir = cosmicDir.CreateSubdirectory("queries");
+                var queryFile = await File.ReadAllTextAsync($"{queriesDir}/{options.Query}.json");
+                var queryData = JsonConvert.DeserializeObject<QueryData>(queryFile);
+                query = queryData.Query;
             }
 
-            var queryDefinition = new QueryDefinition(options.Query);
+            var queryDefinition = new QueryDefinition(query);
             var queryResultSetIterator = Container.GetItemQueryIterator<dynamic>(queryDefinition);
 
             Docs = new List<dynamic>();

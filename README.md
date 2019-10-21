@@ -3,7 +3,7 @@ A succinct and powerful command line query tool for Azure Cosmos DB
 
 ## Installation
 ```
-dotnet tool install --global cosmic
+dotnet tool install --g cosmic
 ```
 
 ## Usage

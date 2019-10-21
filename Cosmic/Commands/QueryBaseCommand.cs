@@ -1,9 +1,11 @@
 ﻿using Cosmic.Data;
+using Cosmic.Extensions;
 using Microsoft.Azure.Cosmos;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Cosmic.Commands
@@ -31,6 +33,23 @@ namespace Cosmic.Commands
                 var queryFile = await File.ReadAllTextAsync($"{queriesDir}/{options.Query}.json");
                 var queryData = JsonConvert.DeserializeObject<QueryData>(queryFile);
                 query = queryData.Query;
+            }
+
+            var parameters = new string[]
+            {
+                options.Value1, options.Value2, options.Value3,
+                options.Value4, options.Value5, options.Value6,
+                options.Value7, options.Value8, options.Value9
+            };
+
+            parameters
+                .TakeWhile(x => x != null)
+                .ToList()
+                .ForEach(x => { query = query.ReplaceFirst("%%", x); });
+
+            if (options.OutputQuery)
+            {
+                Console.WriteLine(query);
             }
 
             var queryDefinition = new QueryDefinition(query);

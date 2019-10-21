@@ -54,7 +54,7 @@ cosmic active
 
 Store a query for later with default query parameters:
 ```
-cosmic store -n myquery "SELECT * FROM c WHERE c.Expired > CURRENT_TIMESTAMP AND c.Type = '%%'" car
+cosmic store -n myquery "SELECT * FROM c WHERE c.Type = '%%'" car
 ```
 
 Execute a previously stored query with it's default query parameters:

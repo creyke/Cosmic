@@ -66,3 +66,8 @@ Execute a previously stored query with defined query parameter values:
 ```
 cosmic query myquery boat
 ```
+
+Output query text before result:
+```
+cosmic query myquery boat -q
+```

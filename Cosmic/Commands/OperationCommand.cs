@@ -22,7 +22,7 @@ namespace Cosmic.Commands
             var cosmicDir = appDir.CreateSubdirectory("cosmic");
             var connectionsDir = cosmicDir.CreateSubdirectory("connections");
             var connectionFile = await File.ReadAllTextAsync($"{connectionsDir}/{connectionId}.json");
-            var connection = JsonConvert.DeserializeObject<Connection>(connectionFile);
+            var connection = JsonConvert.DeserializeObject<ConnectionData>(connectionFile);
 
             Container = new CosmosClient(connection.ConnectionString)
                 .GetDatabase(path[1])

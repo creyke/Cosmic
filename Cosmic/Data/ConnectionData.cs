@@ -1,6 +1,6 @@
 ﻿namespace Cosmic.Data
 {
-    class Connection
+    class ConnectionData
     {
         public string ConnectionString { get; set; }
     }

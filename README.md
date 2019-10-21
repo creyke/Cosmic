@@ -49,5 +49,5 @@ cosmic query "SELECT * FROM c" -r
 
 Check which container is active:
 ```
-cosmic active"
+cosmic active
 ```

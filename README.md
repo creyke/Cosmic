@@ -32,7 +32,12 @@ You can pipe data out to a file...
 cosmic query "SELECT * FROM c" > data.json
 ```
 
-...and then upsert data back in:
+...and then upsert data back in...
 ```
 cosmic upsert data.json
+```
+
+...or  upsert a document directly...
+```
+cosmic upsert "{'id':'foo'}"
 ```

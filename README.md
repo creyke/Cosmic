@@ -41,3 +41,13 @@ cosmic upsert data.json
 ```
 cosmic upsert "{'id':'foo'}"
 ```
+
+Measure RU cost:
+```
+cosmic query "SELECT * FROM c" -r
+```
+
+Check which container is active:
+```
+cosmic active"
+```

@@ -12,22 +12,27 @@ Connect to an Azure Cosmos DB account:
 cosmic connect -n foo -c AccountEndpoint=https://****.documents.azure.com:443/;AccountKey=****==;
 ```
 
+Switch to an active container you want to work with (optional):
+```
+cosmic switch foo/db/container
+```
+
 Query an Azure Cosmos DB account (where 'foo' is the name of a previously created connection):
 ```
-cosmic query foo/db/container "SELECT * FROM c"
+cosmic query "SELECT * FROM c"
 ```
 
 Delete documents from an Azure Cosmos DB account:
 ```
-cosmic delete foo/db/container "SELECT * FROM c"
+cosmic delete "SELECT * FROM c"
 ```
 
 You can pipe data out to a file...
 ```
-cosmic query foo/db/container "SELECT * FROM c" > data.json
+cosmic query "SELECT * FROM c" > data.json
 ```
 
-...and then load data back in:
+...and then upsert data back in:
 ```
-cosmic load foo/db/container data.json
+cosmic upsert data.json
 ```

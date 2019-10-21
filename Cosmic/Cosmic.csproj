@@ -13,7 +13,7 @@
     <PackageTags>cosmos;cli;command;line;netcore;csharp</PackageTags>
     <Description>A succinct and powerful command line query tool for Azure Cosmos DB.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>

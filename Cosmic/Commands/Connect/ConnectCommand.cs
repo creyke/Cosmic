@@ -10,7 +10,7 @@ namespace Cosmic.Commands.Connect
     {
         public async override Task<int> ExecuteAsync(ConnectOptions options)
         {
-            var connection = new Connection
+            var connection = new ConnectionData
             {
                 ConnectionString = options.ConnectionString
             };

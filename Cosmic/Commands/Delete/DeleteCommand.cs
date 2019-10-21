@@ -17,7 +17,8 @@ namespace Cosmic.Commands.Delete
             foreach (var doc in Docs)
             {
                 string id = Convert.ToString(doc["id"]);
-                var partitionKey = new PartitionKey(Convert.ToString(doc[options.PartitionKey]));
+                string partitionKeyValue = Convert.ToString(options.PartitionKey is null ? id : doc[options.PartitionKey]);
+                var partitionKey = new PartitionKey(Convert.ToString(partitionKeyValue));
                 var result = await Container.DeleteItemAsync<object>(id, partitionKey);
                 LogRequestCharge(result.RequestCharge);
                 if ((int)result.StatusCode >= 200 && (int)result.StatusCode <= 299)

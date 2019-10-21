@@ -14,19 +14,34 @@ namespace Cosmic.Commands
 
         public async override Task<int> ExecuteAsync(TOptions options)
         {
-            var path = options.Path.Split('/');
-
-            var connectionId = path[0].ToLowerInvariant();
-
             var appDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             var cosmicDir = appDir.CreateSubdirectory("cosmic");
+
+            ContainerData containerData = null; 
+
+            if (options.ContainerPath is null)
+            {
+                var activeContainerFile = await File.ReadAllTextAsync($"{cosmicDir}/activeContainer.json");
+                containerData = JsonConvert.DeserializeObject<ContainerData>(activeContainerFile);
+            }
+            else
+            {
+                var path = options.ContainerPath.Split('/');
+                containerData = new ContainerData
+                {
+                    ConnectionId = path[0].ToLowerInvariant(),
+                    DatabaseId = path[1],
+                    ContainerId = path[2]
+                };
+            }
+
             var connectionsDir = cosmicDir.CreateSubdirectory("connections");
-            var connectionFile = await File.ReadAllTextAsync($"{connectionsDir}/{connectionId}.json");
+            var connectionFile = await File.ReadAllTextAsync($"{connectionsDir}/{containerData.ConnectionId}.json");
             var connection = JsonConvert.DeserializeObject<ConnectionData>(connectionFile);
 
             Container = new CosmosClient(connection.ConnectionString)
-                .GetDatabase(path[1])
-                .GetContainer(path[2]);
+                .GetDatabase(containerData.DatabaseId)
+                .GetContainer(containerData.ContainerId);
 
             return 0;
         }

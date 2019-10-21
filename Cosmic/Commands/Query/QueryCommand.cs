@@ -8,7 +8,12 @@ namespace Cosmic.Commands.Query
     {
         public async override Task<int> ExecuteAsync(QueryOptions options)
         {
-            await base.ExecuteAsync(options);
+            var result = await base.ExecuteAsync(options);
+
+            if (result != 0)
+            {
+                return result;
+            }
 
             foreach (var doc in Docs)
             {

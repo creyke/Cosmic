@@ -27,17 +27,17 @@ Delete documents from an Azure Cosmos DB account:
 cosmic delete "SELECT * FROM c"
 ```
 
-You can pipe data out to a file...
+You can pipe data out to a file:
 ```
 cosmic query "SELECT * FROM c" > data.json
 ```
 
-...and then upsert data back in...
+...and then upsert data back in:
 ```
 cosmic upsert data.json
 ```
 
-...or  upsert a document directly...
+...or  upsert a document directly:
 ```
 cosmic upsert "{'id':'foo'}"
 ```
@@ -50,4 +50,19 @@ cosmic query "SELECT * FROM c" -r
 Check which container is active:
 ```
 cosmic active
+```
+
+Store a query for later with default query parameters:
+```
+cosmic store -n myquery "SELECT * FROM c WHERE c.Expired > CURRENT_TIMESTAMP AND c.Type = '%%'" car
+```
+
+Execute a previously stored query with it's default query parameters:
+```
+cosmic query myquery
+```
+
+Execute a previously stored query with defined query parameter values:
+```
+cosmic query myquery boat
 ```

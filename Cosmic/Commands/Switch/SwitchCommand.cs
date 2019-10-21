@@ -8,7 +8,7 @@ namespace Cosmic.Commands.Switch
 {
     public class SwitchCommand : Command<SwitchOptions>
     {
-        public async override Task<int> ExecuteAsync(SwitchOptions options)
+        protected async override Task<int> ExecuteCommandAsync(SwitchOptions options)
         {
             var path = options.Path.Split('/');
 

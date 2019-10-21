@@ -6,9 +6,9 @@ namespace Cosmic.Commands.Query
 {
     public class QueryCommand : QueryBaseCommand<QueryOptions>
     {
-        public async override Task<int> ExecuteAsync(QueryOptions options)
+        protected async override Task<int> ExecuteCommandAsync(QueryOptions options)
         {
-            var result = await base.ExecuteAsync(options);
+            var result = await base.ExecuteCommandAsync(options);
 
             if (result != 0)
             {

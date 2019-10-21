@@ -6,9 +6,9 @@ namespace Cosmic.Commands.Delete
 {
     public class DeleteCommand : QueryBaseCommand<DeleteOptions>
     {
-        public async override Task<int> ExecuteAsync(DeleteOptions options)
+        protected async override Task<int> ExecuteCommandAsync(DeleteOptions options)
         {
-            await base.ExecuteAsync(options);
+            await base.ExecuteCommandAsync(options);
 
             var deleted = 0;
 
@@ -16,9 +16,10 @@ namespace Cosmic.Commands.Delete
 
             foreach (var doc in Docs)
             {
-                var id = Convert.ToString(doc["id"]);
+                string id = Convert.ToString(doc["id"]);
                 var partitionKey = new PartitionKey(Convert.ToString(doc[options.PartitionKey]));
                 var result = await Container.DeleteItemAsync<object>(id, partitionKey);
+                LogRequestCharge(result.RequestCharge);
                 if ((int)result.StatusCode >= 200 && (int)result.StatusCode <= 299)
                 {
                     deleted++;

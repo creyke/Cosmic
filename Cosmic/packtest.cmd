@@ -1,5 +1,5 @@
 ﻿
 dotnet build -c Release
-dotnet pack
+dotnet pack -c Release
 dotnet tool uninstall --global cosmic
 dotnet tool install --global --add-source ./nupkg cosmic

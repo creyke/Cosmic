@@ -8,7 +8,7 @@ namespace Cosmic.Commands.Connect
 {
     public class ConnectCommand : Command<ConnectOptions>
     {
-        public async override Task<int> ExecuteAsync(ConnectOptions options)
+        protected async override Task<int> ExecuteCommandAsync(ConnectOptions options)
         {
             var connection = new ConnectionData
             {

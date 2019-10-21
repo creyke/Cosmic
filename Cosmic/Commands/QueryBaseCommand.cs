@@ -10,9 +10,9 @@ namespace Cosmic.Commands
     {
         protected List<dynamic> Docs { get; private set; }
 
-        public async override Task<int> ExecuteAsync(TOptions options)
+        protected async override Task<int> ExecuteCommandAsync(TOptions options)
         {
-            await base.ExecuteAsync(options);
+            await base.ExecuteCommandAsync(options);
 
             if (!options.Query.Contains(' '))
             {
@@ -27,7 +27,8 @@ namespace Cosmic.Commands
 
             while (queryResultSetIterator.HasMoreResults)
             {
-                FeedResponse<dynamic> currentResultSet = await queryResultSetIterator.ReadNextAsync();
+                var currentResultSet = await queryResultSetIterator.ReadNextAsync();
+                LogRequestCharge(currentResultSet.RequestCharge);
                 foreach (dynamic doc in currentResultSet)
                 {
                     Docs.Add(doc);

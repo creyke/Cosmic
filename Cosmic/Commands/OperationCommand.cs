@@ -12,7 +12,9 @@ namespace Cosmic.Commands
     {
         protected Container Container { get; private set; }
 
-        public async override Task<int> ExecuteAsync(TOptions options)
+        protected double requestCharge;
+
+        protected async override Task<int> ExecuteCommandAsync(TOptions options)
         {
             var appDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             var cosmicDir = appDir.CreateSubdirectory("cosmic");
@@ -44,6 +46,21 @@ namespace Cosmic.Commands
                 .GetContainer(containerData.ContainerId);
 
             return 0;
+        }
+
+        protected async override Task ExecuteAfterAsync(TOptions options)
+        {
+            if (options.OutputRequestCharge)
+            {
+                Console.WriteLine($"Request charge total was {requestCharge} RUs.");
+            }
+
+            await base.ExecuteAfterAsync(options);
+        }
+
+        protected void LogRequestCharge(double charge)
+        {
+            requestCharge += charge;
         }
     }
 }

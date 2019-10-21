@@ -8,9 +8,9 @@ namespace Cosmic.Commands.Upsert
 {
     public class UpsertCommand : OperationCommand<UpsertOptions>
     {
-        public async override Task<int> ExecuteAsync(UpsertOptions options)
+        protected async override Task<int> ExecuteCommandAsync(UpsertOptions options)
         {
-            await base.ExecuteAsync(options);
+            await base.ExecuteCommandAsync(options);
 
             var loaded = 0;
 
@@ -26,6 +26,7 @@ namespace Cosmic.Commands.Upsert
             foreach (var doc in docs)
             {
                 var result = await Container.UpsertItemAsync(doc);
+                LogRequestCharge(result.RequestCharge);
                 if ((int)result.StatusCode >= 200 && (int)result.StatusCode <= 299)
                 {
                     loaded++;

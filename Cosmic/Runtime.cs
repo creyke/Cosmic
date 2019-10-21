@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using CommandLine;
+using Cosmic.Commands.Active;
 using Cosmic.Commands.Connect;
 using Cosmic.Commands.Delete;
-using Cosmic.Commands.Upsert;
 using Cosmic.Commands.Query;
 using Cosmic.Commands.Switch;
+using Cosmic.Commands.Upsert;
 
 namespace Cosmic
 {
@@ -12,8 +13,9 @@ namespace Cosmic
     {
         public async Task<int> ExecuteAsync(string[] args)
         {
-            return await Parser.Default.ParseArguments<ConnectOptions, DeleteOptions, QueryOptions, SwitchOptions, UpsertOptions>(args)
+            return await Parser.Default.ParseArguments<ActiveOptions, ConnectOptions, DeleteOptions, QueryOptions, SwitchOptions, UpsertOptions>(args)
                 .MapResult(
+                  (ActiveOptions o) => new ActiveCommand().ExecuteAsync(o),
                   (ConnectOptions o) => new ConnectCommand().ExecuteAsync(o),
                   (DeleteOptions o) => new DeleteCommand().ExecuteAsync(o),
                   (QueryOptions o) => new QueryCommand().ExecuteAsync(o),

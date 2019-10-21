@@ -71,3 +71,8 @@ Output query text before result:
 ```
 cosmic query myquery boat -q
 ```
+
+List connected Azure Cosmos DB accounts:
+```
+cosmic accounts
+```

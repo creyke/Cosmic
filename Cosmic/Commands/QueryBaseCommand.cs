@@ -20,7 +20,8 @@ namespace Cosmic.Commands
             await base.ExecuteCommandAsync(options);
 
             string query = null;
-            
+            QueryData queryData = null;
+
             if (options.Query.Contains(' '))
             {
                 query = options.Query;
@@ -31,7 +32,7 @@ namespace Cosmic.Commands
                 var cosmicDir = appDir.CreateSubdirectory("cosmic");
                 var queriesDir = cosmicDir.CreateSubdirectory("queries");
                 var queryFile = await File.ReadAllTextAsync($"{queriesDir}/{options.Query}.json");
-                var queryData = JsonConvert.DeserializeObject<QueryData>(queryFile);
+                queryData = JsonConvert.DeserializeObject<QueryData>(queryFile);
                 query = queryData.Query;
             }
 
@@ -42,10 +43,21 @@ namespace Cosmic.Commands
                 options.Value7, options.Value8, options.Value9
             };
 
+            var paramId = 0;
+
             parameters
                 .TakeWhile(x => x != null)
                 .ToList()
-                .ForEach(x => { query = query.ReplaceFirst("%%", x); });
+                .ForEach(x => {
+                    paramId++;
+                    query = query.ReplaceFirst("%%", x);
+                });
+
+            while (query.Contains("%%"))
+            {
+                query = query.ReplaceFirst("%%", queryData.Parameters[paramId].DefaultValue);
+                paramId++;
+            }
 
             if (options.OutputQuery)
             {

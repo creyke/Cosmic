@@ -1,3 +1,5 @@
+<image src="https://raw.githubusercontent.com/creyke/Cosmic/master/Cosmic/icon.png" alt="Cosmic">
+
 # Cosmic
 A succinct and powerful command line query tool for Azure Cosmos DB
 

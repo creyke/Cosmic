@@ -28,19 +28,26 @@ namespace Cosmic.Commands
             }
             else
             {
-                DirectoryInfo cosmicDir = null;
+                DirectoryInfo queriesDir = null;
 
                 if (options.Global)
                 {
                     var appDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-                    cosmicDir = appDir.CreateSubdirectory("cosmic");
+                    var cosmicDir = appDir.CreateSubdirectory("cosmic");
+                    queriesDir = cosmicDir.CreateSubdirectory("queries");
                 }
                 else
                 {
-                    cosmicDir = new DirectoryInfo(".");
+                    queriesDir = new DirectoryInfo(".");
                 }
-                var queriesDir = cosmicDir.CreateSubdirectory("queries");
-                var queryFile = await File.ReadAllTextAsync($"{queriesDir}/{options.Query}.json");
+
+                var queryLocation = $"{queriesDir}/{options.Query}";
+                if (queryLocation.EndsWith(".json"))
+                {
+                    queryLocation = queryLocation.Substring(0, queryLocation.Length - 5);
+                }
+
+                var queryFile = await File.ReadAllTextAsync($"{queryLocation}.json");
                 queryData = JsonConvert.DeserializeObject<QueryData>(queryFile);
                 query = queryData.Query;
             }

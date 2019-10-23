@@ -11,19 +11,18 @@ namespace Cosmic.Commands.Store
     {
         protected async override Task<int> ExecuteCommandAsync(StoreOptions options)
         {
-            DirectoryInfo cosmicDir = null;
+            DirectoryInfo queriesDir = null;
 
             if (options.Global)
             {
                 var appDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-                cosmicDir = appDir.CreateSubdirectory("cosmic");
+                var cosmicDir = appDir.CreateSubdirectory("cosmic");
+                queriesDir = cosmicDir.CreateSubdirectory("queries");
             }
             else
             {
-                cosmicDir = new DirectoryInfo(".");
+                queriesDir = new DirectoryInfo(".");
             }
-
-            var queriesDir = cosmicDir.CreateSubdirectory("queries");
 
             var parameters = new string[]
             {

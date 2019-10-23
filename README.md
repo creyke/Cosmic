@@ -4,8 +4,6 @@
 A succinct and powerful command line query tool for Azure Cosmos DB.
 
 ## Summary
-Cosmic is a tool for operating on **existing** Azure Cosmos DB collections. If you want to create and modify accounts, databases, and collections, then you should use the official Microsoft Azure CLI tool [az cosmosdb](https://docs.microsoft.com/en-us/cli/azure/cosmosdb).
-
 Cosmic makes it effortless to run ad-hoc or prepared queries against your Azure Cosmos DB containers for scenarios such as:
 - Selecting data
 - Upserting data
@@ -13,6 +11,8 @@ Cosmic makes it effortless to run ad-hoc or prepared queries against your Azure 
 - Backing up data
 - Troubleshooting performance or cost issues
 - Sharing reusable, parameterisable queries
+
+Cosmic is a tool for operating on **existing** Azure Cosmos DB collections. If you want to create and modify accounts, databases, and collections, then you should use the official Microsoft Azure CLI tool [az cosmosdb](https://docs.microsoft.com/en-us/cli/azure/cosmosdb).
 
 ## Installation
 ```

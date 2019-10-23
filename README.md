@@ -22,7 +22,7 @@ dotnet tool install -g cosmic
 ## Usage
 Connect to an Azure Cosmos DB account:
 ```
-cosmic connect -n foo -c AccountEndpoint=https://****.documents.azure.com:443/;AccountKey=****==;
+cosmic connect -n foo -c "AccountEndpoint=https://****.documents.azure.com:443/;AccountKey=****==;"
 ```
 
 Switch to an active container you want to work with (optional):

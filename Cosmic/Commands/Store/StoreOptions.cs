@@ -8,6 +8,9 @@ namespace Cosmic.Commands.Store
         [Option('n', "name", Required = true, HelpText = "A unique name for this query.")]
         public string Name { get; set; }
 
+        [Option('g', "global", HelpText = "Store queries in global store.")]
+        public bool Global { get; set; }
+
         [Value(1, Required = true, HelpText = "Query e.g. \"SELECT * FROM c\"")]
         public string Query { get; set; }
 

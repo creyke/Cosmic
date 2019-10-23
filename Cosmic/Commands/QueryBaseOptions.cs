@@ -7,6 +7,9 @@ namespace Cosmic.Commands
         [Option('q', "output-query", HelpText = "Output query before result.")]
         public bool OutputQuery { get; set; }
 
+        [Option('g', "global", HelpText = "Use queries from global store.")]
+        public bool Global { get; set; }
+
         [Value(1, Required = true, HelpText = "Query e.g. \"SELECT * FROM c\"")]
         public string Query { get; set; }
 

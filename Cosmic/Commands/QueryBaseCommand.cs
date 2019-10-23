@@ -28,8 +28,17 @@ namespace Cosmic.Commands
             }
             else
             {
-                var appDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
-                var cosmicDir = appDir.CreateSubdirectory("cosmic");
+                DirectoryInfo cosmicDir = null;
+
+                if (options.Global)
+                {
+                    var appDir = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
+                    cosmicDir = appDir.CreateSubdirectory("cosmic");
+                }
+                else
+                {
+                    cosmicDir = new DirectoryInfo(".");
+                }
                 var queriesDir = cosmicDir.CreateSubdirectory("queries");
                 var queryFile = await File.ReadAllTextAsync($"{queriesDir}/{options.Query}.json");
                 queryData = JsonConvert.DeserializeObject<QueryData>(queryFile);

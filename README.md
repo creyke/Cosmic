@@ -3,6 +3,13 @@
 # Cosmic
 A succinct and powerful command line query tool for Azure Cosmos DB
 
+## Summary
+If you are doing any of the following things you can benefit from Cosmic:
+- Developing applications which read and/or write data to Azure Cosmos DB.
+- Responsible for supporting an Azure Cosmos DB solution.
+- Troubleshooting performance or cost issues with Azure Cosmos DB.
+- Wanting to share queries reusable, parameterisable queries with other members of your team.
+
 ## Installation
 ```
 dotnet tool install -g cosmic

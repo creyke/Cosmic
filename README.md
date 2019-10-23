@@ -12,7 +12,7 @@ Cosmic makes it effortless to run ad-hoc or prepared queries against your Azure 
 - Deleting data
 - Backing up data
 - Troubleshooting performance or cost issues
-- Shaing versionable, reusable, parameterisable queries with a team
+- Sharing reusable, parameterisable queries
 
 ## Installation
 ```

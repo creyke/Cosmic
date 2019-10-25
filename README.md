@@ -3,6 +3,8 @@
 # Cosmic
 A succinct and powerful command line query tool for Azure Cosmos DB.
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/CosmicCli/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 ## Summary
 Cosmic makes it effortless to run ad-hoc or prepared queries against your Azure Cosmos DB containers for scenarios such as:
 - Selecting data

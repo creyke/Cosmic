@@ -9,7 +9,7 @@ namespace Cosmic.Aliases
 
         public Alias()
         {
-            Key = $"%{GetType().Name.Replace(nameof(Alias), string.Empty)}%";
+            Key = $"%{GetType().Name.ToUpperInvariant().Replace(nameof(Alias).ToUpperInvariant(), string.Empty)}%";
         }
 
         public abstract string Generate(DateTime utcNow);

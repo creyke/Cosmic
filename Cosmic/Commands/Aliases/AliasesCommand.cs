@@ -14,7 +14,7 @@ namespace Cosmic.Commands.Aliases
 
             foreach (var group in aliasProcessor.Groups)
             {
-                Console.WriteLine($"{group.Name} aliases");
+                Console.WriteLine($"{group.Name} aliases:");
                 Console.WriteLine($"  {"Alias".PadRight(16)} {"Example".PadRight(32)} Description");
                 foreach (var alias in group.Aliases)
                 {

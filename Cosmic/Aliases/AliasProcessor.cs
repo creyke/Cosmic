@@ -17,9 +17,14 @@ namespace Cosmic.Aliases
                     Name = "Time",
                     Aliases = new List<Alias>
                     {
+                        new YesterdayAlias(),
                         new TodayAlias(),
                         new TomorrowAlias(),
-                        new Tomorrow_EndAlias()
+                        new Tomorrow_EndAlias(),
+                        new Last_WeekAlias(),
+                        new This_WeekAlias(),
+                        new Next_WeekAlias(),
+                        new Next_Week_EndAlias()
                     }
                 }
             };

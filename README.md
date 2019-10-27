@@ -87,6 +87,16 @@ Output query text before result:
 cosmic query myquery boat -q
 ```
 
+Common aliases can be used either within a query or as a query parameter:
+```
+cosmic query "SELECT * FROM c WHERE c.Start >= %TODAY% AND c.Start <= %TOMORROW%"
+```
+
+Available aliases can be listed:
+```
+cosmic aliases
+```
+
 List connected Azure Cosmos DB accounts:
 ```
 cosmic accounts

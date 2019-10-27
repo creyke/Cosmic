@@ -1,4 +1,5 @@
-﻿using Cosmic.Data;
+﻿using Cosmic.Aliases;
+using Cosmic.Data;
 using Cosmic.Extensions;
 using Microsoft.Azure.Cosmos;
 using Newtonsoft.Json;
@@ -74,6 +75,8 @@ namespace Cosmic.Commands
                 query = query.ReplaceFirst("%%", queryData.Parameters[paramId].DefaultValue);
                 paramId++;
             }
+
+            query = new AliasProcessor().Process(query, DateTime.UtcNow);
 
             if (options.OutputQuery)
             {

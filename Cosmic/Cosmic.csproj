@@ -14,7 +14,7 @@
     <PackageTags>cosmos;cli;command;line;netcore;csharp</PackageTags>
     <Description>A succinct and powerful command line query tool for Azure Cosmos DB.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.13</Version>
+    <Version>1.0.14</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,7 +26,7 @@
     <None Update="data.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="icon.png" Pack="true" PackagePath="\"/>
+    <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

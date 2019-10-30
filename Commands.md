@@ -1,4 +1,5 @@
 # Commands
+This page is auto-generated from the source code of Cosmic.
 ## Accounts
 List connected Azure Cosmos DB accounts.
 ```

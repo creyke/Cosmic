@@ -16,6 +16,7 @@ namespace Cosmic.Docs
             var doc = new StringBuilder();
 
             doc.AppendLine("# Commands");
+            doc.AppendLine("This page is auto-generated from the source code of Cosmic.");
 
             typeof(Runtime).Assembly.GetTypes()
                 .Where(x => x.GetInterfaces().Contains(typeof(ICommand)) && !x.ContainsGenericParameters)

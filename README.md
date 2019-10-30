@@ -101,3 +101,8 @@ List connected Azure Cosmos DB accounts:
 ```
 cosmic accounts
 ```
+
+Loop using iterators:
+```
+cosmic upsert "{'id':'%I%'}" -l 10
+```

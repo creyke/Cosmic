@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Cosmic.Aliases
 {
@@ -17,6 +16,7 @@ namespace Cosmic.Aliases
                     Name = "Time",
                     Aliases = new List<Alias>
                     {
+                        new NowAlias(),
                         new YesterdayAlias(),
                         new TodayAlias(),
                         new TomorrowAlias(),

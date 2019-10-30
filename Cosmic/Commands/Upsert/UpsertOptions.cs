@@ -5,6 +5,9 @@ namespace Cosmic.Commands.Upsert
     [Verb("upsert", HelpText = "Load data into an Azure Cosmos DB container.")]
     public class UpsertOptions : OperationOptions
     {
+        [Option('d', "output-document", HelpText = "Output document before result.")]
+        public bool OutputDocument { get; set; }
+
         [Option('f', "file", HelpText = "File e.g. 'data.json'")]
         public string File { get; set; }
 

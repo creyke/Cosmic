@@ -56,6 +56,7 @@ namespace Cosmic.Commands.Upsert
             
             foreach (var doc in docs)
             {
+                Console.WriteLine(JsonConvert.SerializeObject(doc));
                 var result = await Container.UpsertItemAsync(doc);
                 LogRequestCharge(result.RequestCharge);
                 if ((int)result.StatusCode >= 200 && (int)result.StatusCode <= 299)

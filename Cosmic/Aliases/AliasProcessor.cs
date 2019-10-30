@@ -26,17 +26,25 @@ namespace Cosmic.Aliases
                         new Next_WeekAlias(),
                         new Next_Week_EndAlias()
                     }
+                },
+                new AliasGroup
+                {
+                    Name = "Loops",
+                    Aliases = new List<Alias>
+                    {
+                        new IAlias()
+                    }
                 }
             };
         }
 
-        public string Process(string query, DateTime utcNow)
+        public string Process(string query, DateTime utcNow, int iterator)
         {
             Groups.ForEach(x => x.Aliases.ForEach(y =>
             {
                 if (query.Contains(y.Key))
                 {
-                    query = query.Replace(y.Key, y.Generate(utcNow));
+                    query = query.Replace(y.Key, y.Generate(utcNow, iterator));
                 }
             }));
 

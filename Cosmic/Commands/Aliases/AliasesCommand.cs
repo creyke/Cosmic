@@ -18,7 +18,7 @@ namespace Cosmic.Commands.Aliases
                 Console.WriteLine($"  {"Alias".PadRight(16)} {"Example".PadRight(32)} Description");
                 foreach (var alias in group.Aliases)
                 {
-                    Console.WriteLine($"  {alias.Key.PadRight(16)} {alias.Generate(now).PadRight(32)} {alias.Description}");
+                    Console.WriteLine($"  {alias.Key.PadRight(16)} {alias.Generate(now, 0).PadRight(32)} {alias.Description}");
                 }
             }
 

@@ -7,7 +7,7 @@ namespace Cosmic.Aliases
     {
         public override string Description => "The current time (in UTC).";
 
-        public override string Generate(DateTime utcNow)
+        public override string Generate(DateTime utcNow, int iterator)
         {
             return utcNow.ToStringCosmos();
         }

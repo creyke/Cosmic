@@ -9,5 +9,8 @@ namespace Cosmic.Commands
 
         [Option('r', "output-request-charge", HelpText = "Output request charge (in RUs).")]
         public bool OutputRequestCharge { get; set; }
+
+        [Option('l', "loop", Default = 1, HelpText = "Loops this operation multiple specified times with %I% as the iterator.")]
+        public int Loop { get; set; }
     }
 }

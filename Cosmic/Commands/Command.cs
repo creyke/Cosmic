@@ -5,7 +5,7 @@ namespace Cosmic.Commands
 {
     public abstract class Command<TOptions>
     {
-        public async Task<int> ExecuteAsync(TOptions options)
+        public virtual async Task<int> ExecuteAsync(TOptions options)
         {
             await ExecuteBeforeAsync(options);
             await ExecuteCommandAsync(options);

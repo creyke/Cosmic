@@ -12,6 +12,6 @@ namespace Cosmic.Aliases
             Key = $"%{GetType().Name.ToUpperInvariant().Replace(nameof(Alias).ToUpperInvariant(), string.Empty)}%";
         }
 
-        public abstract string Generate(DateTime utcNow);
+        public abstract string Generate(DateTime utcNow, int iterator);
     }
 }

@@ -12,7 +12,24 @@ namespace Cosmic.Commands
     {
         protected Container Container { get; private set; }
 
+        protected int iterator;
         protected double requestCharge;
+
+        public async override Task<int> ExecuteAsync(TOptions options)
+        {
+            await ExecuteBeforeAsync(options);
+            for (int i = 0; i < options.Loop; i++)
+            {
+                iterator = i;
+                await ExecuteCommandAsync(options);
+                if (options.Loop > 1)
+                {
+                    Console.WriteLine($"Completed loop {i + 1}/{options.Loop}");
+                }
+            }
+            await ExecuteAfterAsync(options);
+            return 0;
+        }
 
         protected async override Task<int> ExecuteCommandAsync(TOptions options)
         {

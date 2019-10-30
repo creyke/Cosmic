@@ -76,7 +76,7 @@ namespace Cosmic.Commands
                 paramId++;
             }
 
-            query = new AliasProcessor().Process(query, DateTime.UtcNow);
+            query = new AliasProcessor().Process(query, DateTime.UtcNow, iterator);
 
             if (options.OutputQuery)
             {

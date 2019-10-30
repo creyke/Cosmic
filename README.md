@@ -22,7 +22,7 @@ dotnet tool install -g cosmic
 ```
 
 ## Documentation
-The latest auto-generated [commands reference documentation](./Commands.md) is a good place to start. If you have a feature request or a bug then raise it as an [issue](https://github.com/creyke/Cosmic/issues). If you have any questions then join visit the [Gitter community](https://gitter.im/CosmicCli/community).
+The latest auto-generated [commands reference documentation](./Commands.md) is a good place to start. If you have a feature request or a bug then raise it as an [issue](https://github.com/creyke/Cosmic/issues). If you have any questions then visit the [Gitter community](https://gitter.im/CosmicCli/community).
 
 ## Usage
 Connect to an Azure Cosmos DB account:

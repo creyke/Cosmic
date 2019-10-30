@@ -21,6 +21,9 @@ Cosmic is a tool for operating on **existing** Azure Cosmos DB collections. If y
 dotnet tool install -g cosmic
 ```
 
+## Documentation
+The latest auto-generated [commands reference documentation](./Commands.md) is a good place to start, else join Gitter above for more advanced use cases.
+
 ## Usage
 Connect to an Azure Cosmos DB account:
 ```

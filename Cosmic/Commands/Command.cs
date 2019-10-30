@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Cosmic.Commands
 {
-    public abstract class Command<TOptions>
+    public abstract class Command<TOptions> : ICommand
     {
         public virtual async Task<int> ExecuteAsync(TOptions options)
         {

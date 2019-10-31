@@ -1,8 +1,12 @@
 ﻿using CommandLine;
+using Cosmic.Attributes;
 
 namespace Cosmic.Commands.Upsert
 {
     [Verb("upsert", HelpText = "Load data into an Azure Cosmos DB container.")]
+    [Example("upsert \"{'id':'0'}\"", HelpText = "Load document into an Azure Cosmos DB container.")]
+    [Example("upsert -f mydocs.json", HelpText = "Load documents from file.")]
+    [Example("upsert \"{'id':'%I%'}\" -l 3", HelpText = "Loop and load 3 documents.")]
     public class UpsertOptions : OperationOptions
     {
         [Option('d', "output-document", HelpText = "Output document before result.")]

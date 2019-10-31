@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using Cosmic.Attributes;
 using Cosmic.Commands;
 using System;
 using System.IO;
@@ -33,15 +34,29 @@ namespace Cosmic.Docs
 
             doc.AppendLine($"## {name}");
 
-            var verbAttribute = (VerbAttribute)(optionsType.GetCustomAttributes(true).First());
-
-            doc.AppendLine(verbAttribute.HelpText);
-
-            doc.AppendLine(CodeBlock);
-
-            doc.AppendLine($"cosmic {name.ToLowerInvariant()}");
-
-            doc.AppendLine(CodeBlock);
+            var i = 0;
+            optionsType.GetCustomAttributes(true)
+                .ToList()
+                .ForEach(x =>
+                {
+                    if (i == 0)
+                    {
+                        doc.AppendLine(((VerbAttribute)x).HelpText);
+                    }
+                    else
+                    {
+                        if (i == 1)
+                        {
+                            doc.AppendLine("### Examples");
+                        }
+                        var e = (ExampleAttribute)x;
+                        doc.AppendLine($"{e.HelpText}:");
+                        doc.AppendLine(CodeBlock);
+                        doc.AppendLine($"cosmic {e.Example}");
+                        doc.AppendLine(CodeBlock);
+                    }
+                    i++;
+                });
 
             var properties = optionsType.GetProperties();
 

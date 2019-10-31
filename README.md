@@ -6,7 +6,7 @@ A succinct and powerful command line query tool for Azure Cosmos DB.
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/CosmicCli/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Summary
-Cosmic makes it effortless to run ad-hoc or prepared queries against your Azure Cosmos DB containers for scenarios such as:
+Cosmic makes it effortless to run ad-hoc or prepared queries against your Azure Cosmos DB containers for common usage scenarios such as:
 - Selecting data
 - Upserting data
 - Deleting data
@@ -21,10 +21,7 @@ Cosmic is a tool for operating on **existing** Azure Cosmos DB collections. If y
 dotnet tool install -g cosmic
 ```
 
-## Documentation
-The latest auto-generated [commands reference documentation](./Commands.md) is a good place to start. If you have a feature request or a bug then raise it as an [issue](https://github.com/creyke/Cosmic/issues). If you have any questions then visit the [Gitter community](https://gitter.im/CosmicCli/community).
-
-## Usage
+## Basic Usage
 Connect to an Azure Cosmos DB account:
 ```
 cosmic connect -n foo -c "AccountEndpoint=https://****.documents.azure.com:443/;AccountKey=****==;"
@@ -35,11 +32,15 @@ Switch to an active container you want to work with (optional):
 cosmic switch foo/db/container
 ```
 
-Query an Azure Cosmos DB account (where 'foo' is the name of a previously created connection):
+Query an Azure Cosmos DB account:
 ```
 cosmic query "SELECT * FROM c"
 ```
 
+## Documentation
+The latest auto-generated [commands reference documentation](./Commands.md) is a good place to start. If you have a feature request or a bug then raise it as an [issue](https://github.com/creyke/Cosmic/issues). If you have any questions then visit the [Gitter community](https://gitter.im/CosmicCli/community).
+
+## Further Examples
 Delete documents from an Azure Cosmos DB account:
 ```
 cosmic delete "SELECT * FROM c"

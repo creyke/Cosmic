@@ -3,10 +3,10 @@ using Cosmic.Attributes;
 
 namespace Cosmic.Commands.Store
 {
-    [Verb("store", HelpText = "Stores a query for later.")]
-    [Example("store -n myquery \"SELECT * FROM c\"", HelpText = "Stores a query for later.")]
-    [Example("store -n myquery \"SELECT * FROM c WHERE c.Size > %% AND c.Vehicle = '%%'\" 3 boat", HelpText = "Stores a parametisable query for later.")]
-    [Example("store -n -g myquery \"SELECT * FROM c\"", HelpText = "Stores query in global store rather than current working directory.")]
+    [Verb("store", HelpText = "Store a query for later.")]
+    [Example("store -n myquery \"SELECT * FROM c\"", HelpText = "Store a query for later.")]
+    [Example("store -n myquery \"SELECT * FROM c WHERE c.Size > %% AND c.Vehicle = '%%'\" 3 boat", HelpText = "Store a parametisable query for later.")]
+    [Example("store -n -g myquery \"SELECT * FROM c\"", HelpText = "Store query in global store rather than current working directory.")]
     public class StoreOptions
     {
         [Option('n', "name", Required = true, HelpText = "A unique name for this query.")]

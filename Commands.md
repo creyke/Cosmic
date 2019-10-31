@@ -90,17 +90,17 @@ cosmic query -g myquery
 | -r, --output-request-charge | Output request charge (in RUs). |
 | -l, --loop | Loops this operation multiple specified times with %I% as the iterator. |
 ## Store
-Stores a query for later.
+Store a query for later.
 ### Examples
-Stores a query for later.:
+Store a query for later.:
 ```
 cosmic store -n myquery "SELECT * FROM c"
 ```
-Stores a parametisable query for later.:
+Store a parametisable query for later.:
 ```
 cosmic store -n myquery "SELECT * FROM c WHERE c.Size > %% AND c.Vehicle = '%%'" 3 boat
 ```
-Stores query in global store rather than current working directory.:
+Store query in global store rather than current working directory.:
 ```
 cosmic store -n -g myquery "SELECT * FROM c"
 ```
@@ -109,9 +109,9 @@ cosmic store -n -g myquery "SELECT * FROM c"
 | -n, --name | A unique name for this query. |
 | -g, --global | Store queries in global store. |
 ## Switch
-Switches to a specific default container.
+Switch to a specific default container.
 ### Examples
-Switches to a specific default container.:
+Switch to a specific default container.:
 ```
 cosmic switch myaccount/mydatabase/mycontainer
 ```

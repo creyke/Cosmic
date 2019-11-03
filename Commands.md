@@ -1,5 +1,4 @@
 # Commands
-This page is auto-generated from the source code of Cosmic.
 - [Accounts](#accounts)
 - [Active](#active)
 - [Aliases](#aliases)

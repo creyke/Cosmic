@@ -19,11 +19,18 @@ namespace Cosmic.Docs
             doc.AppendLine("# Commands");
             doc.AppendLine("This page is auto-generated from the source code of Cosmic.");
 
-            typeof(Runtime).Assembly.GetTypes()
+            var types = typeof(Runtime).Assembly.GetTypes()
                 .Where(x => x.GetInterfaces().Contains(typeof(ICommand)) && !x.ContainsGenericParameters)
                 .OrderBy(x => x.Name)
-                .ToList()
-                .ForEach(x => CreatePage(doc, x, x.BaseType.GenericTypeArguments.First()));
+                .ToList();
+
+            types.ForEach(x =>
+            {
+                var name = x.Name.Replace("Command", string.Empty);
+                doc.AppendLine($"- [{name}](#{name.ToLowerInvariant()})");
+            });
+
+            types.ForEach(x => CreatePage(doc, x, x.BaseType.GenericTypeArguments.First()));
 
             File.WriteAllText("../../../../Commands.md", doc.ToString());
         }

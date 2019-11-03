@@ -1,5 +1,14 @@
 # Commands
 This page is auto-generated from the source code of Cosmic.
+- [Accounts](#accounts)
+- [Active](#active)
+- [Aliases](#aliases)
+- [Connect](#connect)
+- [Delete](#delete)
+- [Query](#query)
+- [Store](#store)
+- [Switch](#switch)
+- [Upsert](#upsert)
 ## Accounts
 List connected Azure Cosmos DB accounts.
 ### Examples
